@@ -1,0 +1,72 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{5}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on Transposes, Permutations, Spaces}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{5.1}{}
+\part{a} If we can rotate the three rows of the permutation matrix in one direction, we can get \(P^3 = I\). One example is that if \(P = \begin{bmatrix} 0 1 0 \\ 0 0 1 \\ 1 0 0 \end{bmatrix}\), then \(P^2 = \begin{bmatrix} 0 0 0 \\ 1 0 0 \\ 0 1 0 \end{bmatrix}\) and \(P^3 = \begin{bmatrix} 1 0 0 \\ 0 1 0 \\ 0 0 1 \end{bmatrix}\).
+
+\part{b} If we can exchange the rows in a 4 by 4 matrix in an non-orderly fashion, unlike \(P\) in part (a), then we will get \(P^4 \neq I\). For example, if \(\hat{P} = \begin{bmatrix} 0 1 0 0 \\ 0 0 0 1 \\ 0 0 1 0 \\ 1 0 0 0 \end{bmatrix}\), then \(\hat{P}^2 = \begin{bmatrix} 0 0 0 1 \\ 1 0 0 0 \\ 0 0 1 0 \\ 0 1 0 0 \end{bmatrix}\), \(\hat{P}^3 = \begin{bmatrix} 1 0 0 0 \\ 0 1 0 0 \\ 0 0 1 0 \\ 0 0 0 1 \end{bmatrix}\) and \(\hat{P}^4 = \begin{bmatrix} 0 1 0 0 \\ 0 0 0 1 \\ 0 0 1 0 \\ 1 0 0 0 \end{bmatrix} \neq I\).
+
+\question{5.2}{}
+\part{a} If \(A\) is symmetric, then we can represent \(A\) by:
+$$\begin{bmatrix} a \ b \ c \ d \\ b \ e \ h \ i \\ c \ h \ f \ j \\ d \ i \ j \ g \end{bmatrix}$$
+There are 10 independent entries.
+
+\part{b} If \(A\) is skew-symmetric (\(A^{T} = - A\)), we can represent \(A\) by:
+$$\begin{bmatrix} 0 \ a \ b \ c \\ -a \ 0 \ d \ e \\ -b \ -d \ 0 \ f \\ -c \ -e \ -f \ 0 \end{bmatrix}$$
+There are 6 independent entries.
+
+\question{5.3}{}
+\part{a} \textbf{True}: With \(A^T = A\) and \(B^T = B\), it leads us to \((A + B)^{T} = A^T + B^T = A + B\) and \((cA)^T = cA^T\). The addition and scalar multiplication results are both in the subspace. 
+
+\part{b} \textbf{True}: With \(A^T = -A\), it leads to \((A + B)^T = A^T + B^T= -A - B = - (A + B) \) and \((cA)^T = cA^T = -cA\).
+
+\part{c} \textbf{Flase}: With \(A^T \neq A\) and \(B^T \neq B\), it leads us to \((A + B)^{T} = A^T + B^T \neq A + B\). An example is:
+$$\begin{bmatrix} 1 0 \\ 1 0 \end{bmatrix} + \begin{bmatrix} 0 1 \\ 0 1 \end{bmatrix} = \begin{bmatrix} 1 1 \\ 1 1 \end{bmatrix}$$
+It does not form a subspace, because the result of addition is a symmetrical matrix.
+
+\end{document}
