@@ -1,0 +1,58 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{9}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on independence, basis, and dimension}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{9.1}{}
+To find the largest possible number of independent vectors, we can put all vectors in a matrix and then perform elimination to find out the number of pivots.
+
+\(\begin{bmatrix} 1 \ 1 \ 1 \ 0 \ 0 \ 0 \\ -1 \ 0 \ 0 \ 1 \ 1 \ 0 \\ 0 \ -1 \ 0 \ -1 \ 0 \ 1 \\ 0 \ 0 \ -1 \ 0 \ -1 \ -1 \end{bmatrix}\to\,\begin{bmatrix} 1 \ 1 \ 1 \ 0 \ 0 \ 0 \\ 0 \ 1 \ 1 \ 1 \ 1 \ 0 \\ 0 \ 0 \ 1 \ 0 \ 1 \ 1 \\ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \end{bmatrix}\)
+
+There are three pivots so there are three independent vectors.
+
+\question{9.2}{}
+An obvious basis for the plane is \(\begin{bmatrix} 1 \\ -1 \\ -1 \end{bmatrix}\). When it intersects with the xy plane, \(z = 0\), and the intersection would be a line. A basis for the line is \(\begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix}\). A basis perpendicular to the plane is the cross product of the two bases of the plane, \(\begin{bmatrix} -1 \\ 2 \\ -3 \end{bmatrix}\).  
+\end{document}
