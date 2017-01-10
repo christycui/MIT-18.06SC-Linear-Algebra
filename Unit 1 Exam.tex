@@ -1,0 +1,81 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{13}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Unit 1 Exam}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{1}{}
+Soltuions to \(Ax = b\) have the form \(x = x_p + cx_s\). Since \(Ax\) has one solution to some right-hand side \(b\), it means that there are no free variables and the rank \(r\) equals the number of columns \(n\). Since \(Ax\) has no solution to some other right-hand side \(b\), it means that the rank of row space is smaller than the number of rows. In other words, \(r < m\). To summarize, \(r = n < m\).
+\question{2}{}
+\part{a} Since \(E_{23}E_{31}E_{21}A = I\), it leads to \(A^{-1} = E_{21}^{-1}E_{31}^{-1}E_{23}^{-1}\).
+
+\(A^{-1} = E_{23}E_{31}E_{23} = \begin{bmatrix} 1 \ 0 \ 0 \\ 0 \ 1 \ -1 \\ 0 \ 0 \ 1 \end{bmatrix}\begin{bmatrix} 1 \ 0 \ 0 \\ 0 \ 1 \ 0 \\ -3 \ 0 \ 1 \end{bmatrix}\begin{bmatrix} 1 \ 0 \ 0 \\ -4 \ 1 \ 0 \\ 0 \ 0 \ 1 \end{bmatrix} = \begin{bmatrix} 1 \ 0 \ 0 \\ 3 \ 1 \ -1 \\ -3 \ 0 \ 1 \end{bmatrix}\begin{bmatrix} 1 \ 0 \ 0 \\ -4 \ 1 \ 0 \\ 0 \ 0 \ 1 \end{bmatrix} = \begin{bmatrix} 1 \ 0 \ 0 \\ -1 \ 1 \ -1 \\ -3 \ 0 \ 1 \end{bmatrix}\)
+
+\part{b}
+\(A = E_{21}^{-1}E_{31}^{-1}E_{23}^{-1} = \begin{bmatrix} 1 \ 0 \ 0 \\ 4 \ 1 \ 0 \\ 0 \ 0 \ 1 \end{bmatrix}\begin{bmatrix} 1 \ 0 \ 0 \\ 0 \ 1 \ 0 \\ 3 \ 0 \ 1 \end{bmatrix}\begin{bmatrix} 1 \ 0 \ 0 \\ 0 \ 1 \ 3 \\ 0 \ 0 \ 1 \end{bmatrix} = \begin{bmatrix} 1 \ 0 \ 0 \\ 4 \ 1 \ 0 \\ 3 \ 0 \ 1 \end{bmatrix}\begin{bmatrix} 1 \ 0 \ 0 \\ 0 \ 1 \ 1 \\ 0 \ 0 \ 1 \end{bmatrix} = \begin{bmatrix} 1 \ 0 \ 0 \\ 4 \ 1 \ 1 \\ 3 \ 0 \ 1 \end{bmatrix}\)
+
+\part{c} Since \(U = I\) in this \(A = LU\) equation, \(L = A = \begin{bmatrix} 1 \ 0 \ 0 \\ 4 \ 1 \ 1 \\ 3 \ 0 \ 1 \end{bmatrix}\).
+
+\question{3}{}
+$$A = \begin{bmatrix} 1 \ 1 \ 2 \ 4 \\ 3 \ c \ 2 \ 8 \\ 0 \ 0 \ 2 \ 2 \end{bmatrix}\,\to\,\begin{bmatrix} 1 \ 1 \ 2 \ 4 \\ 0 \ c-3 \ -4 \ -4 \\ 0 \ 0 \ 1 \ 1 \end{bmatrix}$$
+\part{a} 
+When \(c - 3 \neq 0\) or \(c \neq 3\), there are three pivots in \(A\). The basis for the column space of \(A\) is \(\begin{bmatrix} 1 \\ 3 \\ 0 \end{bmatrix}\), \(\begin{bmatrix} 1 \\ c \\ 0 \end{bmatrix}\) and \(\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}\). When \(c = 0\), there are only two pivots in \(A\) so the basis is \(\begin{bmatrix} 1 \\ 3 \\ 0 \end{bmatrix}\) and \(\begin{bmatrix} 2 \\ 2 \\ 2 \end{bmatrix}\).
+
+\part{b} 
+When \(c - 3 \neq 0\) or \(c \neq 3\), there are three pivots and one free variable in \(A\) so there is one special solution. The basis for the nullspace of \(A\) is \(\begin{bmatrix} -2 \\ 0 \\ -1 \\ 1 \end{bmatrix}\). When \(c = 3\), there are two free variables and thus two special solutions. The basis in this case would be \(\begin{bmatrix} -2 \\ 0 \\ -1 \\ 1 \end{bmatrix}\) and \(\begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \end{bmatrix}\).
+
+\part{c} 
+Perform row reduction on \(Ax = \begin{bmatrix} 1 \\ c \\ 0 \end{bmatrix}\), we have
+$$\begin{bmatrix}\begin{array}{cccc|c} 1&1&2&4&1 \\ 0&c-3&-4&-4&c-3 \\ 0&0&1&1&0 \end{array}\end{bmatrix}$$
+When \(c - 3 \neq 0\) or \(c \neq 3\), the complete solution is \(\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix} + d\begin{bmatrix} -2 \\ 0 \\ -1 \\ 1 \end{bmatrix}\). When \(c = 3\), the complete solution is \(\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix} + e\begin{bmatrix} -2 \\ 0 \\ -1 \\ 1 \end{bmatrix} + f\begin{bmatrix} -1 \\ 1 \\ 0 \\ 0 \end{bmatrix}\).
+
+\question{4}{}
+\part{a} The nullspace of \(A\) equals \(n - R(A)\). Since \(R(A) >= 0 and n = 5\), the dimension of \(N(A)\) is between 2 and 5 (inclusive).
+
+\part{b} Since there are three pivots and two free variables, the column space of \(A\) has dimension of 3 and the basis is column 1, 4, 5 of \(A\).
+
+\part{c} In vector space \(M\) of 3 by 3 matrices, subspace \(S\) spanned by rref contains matrices of form
+$$\begin{bmatrix} a \ b \ c \\ 0 \ d \ e \\ 0 \ 0 \ f \end{bmatrix}$$
+\end{document}
