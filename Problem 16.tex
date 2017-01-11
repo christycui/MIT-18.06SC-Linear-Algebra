@@ -37,26 +37,41 @@
 %Section A==============Change the values below to match your information==================
 \newcommand\NAME{Haiying Cui}  % your name
 \newcommand\ANDREWID{Christy}     % your andrew id
-\newcommand\HWNUM{14}              % the homework number
+\newcommand\HWNUM{16}              % the homework number
 %Section B==============Put your answers to the questions below here=======================
 
-\title{Exercises on orthogonal vectors and subspaces}
+\title{Exercises on projection matrices and least squares}
 \maketitle
 % no need to restate the problem --- the graders know which problem is which,
 % but replacing "The First Problem" with a short phrase will help you remember
 % which problem this is when you read over your homeworks to study.
 
-\question{14.1}{}
-We can observe that if we have \(y_1 = 1\), \(y_2 = 1\) and \(y_3 = -1\), then on the left hand, the sum of all equations is 0 because they cancel out, while on the right we get 1. 
+\question{16.1}{}
+We can rewrite the problem as \(\begin{bmatrix} 1 \ -1 \\ 1 \ 1 \\ 1 \ 2 \end{bmatrix}x = \begin{bmatrix}7 \\ 7 \\ 21 \end{bmatrix}\). Multiply each side by \(A^T\), we want to find \(\hat{x}\) that satisfies \(A^TA\hat{x} = A^Tb\).
+$$A^TA = \begin{bmatrix} 1 \ 1 \ 1 \\ -1 \ 1 \ 2 \end{bmatrix}\begin{bmatrix} 1 \ -1 \\ 1 \ 1 \\ 1 \ 2 \end{bmatrix} = \begin{bmatrix} 3 \ 2 \\ 2 \ 6 \end{bmatrix}$$
+$$A^Tb = \begin{bmatrix} 1 \ 1 \ 1 \\ -1 \ 1 \ 2 \end{bmatrix}\begin{bmatrix} 7 \\ 7 \\ 21 \end{bmatrix} = \begin{bmatrix} 35 \\ 42 \end{bmatrix}$$
+$$\begin{bmatrix} 3 \ 2 \\ 2 \ 6 \end{bmatrix}\begin{bmatrix} C \\ D \end{bmatrix} = \begin{bmatrix} 35 \\ 42 \end{bmatrix}$$
 
-This is because we can rewrite the second part of \(Fredholm's Alternative\):
+We can solve the above and get \(\hat{x} = \begin{bmatrix} 9 \\ 4 \end{bmatrix}\).
 
-\(y^Tb = 1 = y^T(Ax) = 0\) when there is no solution \(x\)
+\question{16.2}{}
+$$p = A\hat{x} = \begin{bmatrix} 1 \ -1 \\ 1 \ 1 \\ 1 \ 2 \end{bmatrix}\begin{bmatrix} 9 \\ 4 \end{bmatrix} = \begin{bmatrix} 5 \\ 13 \\ 17 \end{bmatrix}$$
+$$e = b - p = \begin{bmatrix} 2 \\ -6 \\ 4 \end{bmatrix}$$
+$$Pe = P(b - p) = Pb - Pp = p - p = 0$$
 
-\question{14.2}{}
-\part{a}{}
-Since \(N(A)\) is perpendicular to \(C(A^T)\), we have \(r^Tn = 0\). Since \(C(A^T)\) is perpendicular to \(N(A^T)\), we have \(c^Tl = 0\). Also, since these vectors are all nonzero vectors while we know that \(N(A) + C(A^T) = N(A^T) + C(A) = m = n = 2\) in this case, it leads to \(m = n = 1\).
+\question{16.3}{}
+When \(b = \begin{bmatrix} 2 \\ -6 \\ 4 \end{bmatrix}\), \(b\) is perpendicular to the column space of \(A\).
 
-\part{b}{}
-\(c\) is the basis for columns of \(A\) and \(r\) is the basis for rows of \(A\). Therefore, A is in the form of \(cr^T\).
+\question{16.4}{}
+\(hat{x}\) remains the same as before. The error \(e = 0\) because \(b\) is in the column space of \(A\).
+
+\question{16.5}{}
+The error vector \(e\) is in the left nullspace of \(A\). \(p\) is in the column space of \(A\). \(\hat{x}\) is in the row space of \(A\). The nullspace of \(A\) is the zero vector.
+
+\question{16.6}{}
+In an attempt to solve \(\begin{bmatrix} 1 \ -2 \\ 1 \ -1 \\ 1 \ 0 \\ 1 \ 1 \\ 1 \ 2 \end{bmatrix}x = \begin{bmatrix} 4 \\ 2 \\ -1 \\ 0 \\ 0 \end{bmatrix}\), we multiply both sides by \(A^T\).
+$$A^TA = \begin{bmatrix} -5 \ 0 \\ 0 \ 10 \end{bmatrix}$$
+$$A^Tb = \begin{bmatrix} 5 \\ -10 \end{bmatrix}$$
+$$\begin{bmatrix} -5 \ 0 \\ 0 \ 10 \end{bmatrix}\begin{bmatrix} C \\ D \end{bmatrix} = \begin{bmatrix} 5 \\ -10 \end{bmatrix}$$
+Solving the above, we get \(\hat{x} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}\). Therefore, the best line is \(y = 1 - t\).
 \end{document}
