@@ -1,0 +1,55 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{18}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on properties of determinants}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{18.1}{}
+Since each row of \(A\) adds up to zero, this means that for each row \(a_i: a_ix = 0\). Another way to look at this is that the nullspace of \(A\) can be nonzero vectors; therefore, \(A\) is singular and determinant of \(A\) is 0.
+
+If each row of \(A\) adds up to one, this means that each row of \(A - I\) adds up to zero, so \(A - I\) is singular and determinant of \(A-I\) is zero. However, this does not mean that determinant of \(A\) is zero in this case because it does not follow the addition rule. For example, if \(A = \begin{bmatrix} 0 1 \\ 1 0 \end{bmatrix}\), det(\(A - I\)) is 0 and det(\(A\)) is -1.
+\question{18.2}{}
+det \(\begin{bmatrix} 1 \ a \ a^2 \\ 1 \ b \ b^2 \\ 1 \ c \ c^2 \end{bmatrix}\) = det \(\begin{bmatrix} 1 \ a \ a^2 \\ 0 \ b-a \ (b+a)(b-a) \\ 0 \ c-a \ (c+a)(c-a) \end{bmatrix}\) = det \(\begin{bmatrix} 1 \ a \ a^2 \\ 0 \ b-a \ (b+a)(b-a) \\ 0 \ 0 \ (c-a)(c-b) \end{bmatrix}\) = (b-a)(c-a)(c-b)
+\end{document}
