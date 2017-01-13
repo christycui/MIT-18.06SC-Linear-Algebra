@@ -1,0 +1,64 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{21}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on eigenvalues and eigenvectors}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{21.1}{}
+\part{a} There are two nonzero eigenvalues, so the rank of \(A\) is greater or equal than 2. Also, since \(A\) has 0 as an eiganvalue, \(A\) is singular so the rank has to be smaller than three. Therefore, the rank of \(A\) is two.
+
+\part{b} det(\(B\)) = \(0 \times 1 \times 2 = 0\)
+
+\part{c} Not sure if we have sufficient information, let's look at the next one.
+
+\part{d} When \(Bv = \lambda v\), \(B^{-1}v = \frac{1}{\lambda}v\) and \(B^2v = \lambda^2v\). It leads to \((B^2 + I)^{-1}v = \frac{1}{\lambda^2 + 1}v\)
+
+\question{21.2}{}
+det(\(A-\lambda I \)) = 0 = \(\begin{bmatrix} 1 - \lambda \ 2 \ 3 \\ 0 \ 4- \lambda \ 5 \\ 0 \ 0 \ 6- \lambda \end{bmatrix} = (1-\lambda)(4-lambda)(6-\lambda)\,\to\, \lambda = 1, 4, 6 \)
+
+det(\(B-\lambda I \)) = 0 = \(\begin{bmatrix} -\lambda \ 0 \ 1 \\ 0 \ 2-\lambda \ 0 \\ 3 \ 0 \ -\lambda \end{bmatrix} = -\lambda (-\lambda)(2-\lambda)+(-3)(2-\lambda) = \lambda^2(2-\lambda) -3(2-\lambda) = (2-\lambda)(\lambda+\sqrt{3})(\lambda - \sqrt{3})\,\to\,\lambda = 2, \sqrt{3}, -\sqrt{3}\)
+
+det(\(C - \lambda I\)) = 0 = \(\begin{bmatrix} 2-\lambda \ 2 \ 2 \\ 2 \ 2-\lambda \ 2 \\ 2 \ 2 \ 2-\lambda\end{bmatrix} = (2 - \lambda)((2-\lambda)^2 - 4) - 2\cdot(2(2-\lambda)-4) + 2(4-2(2-\lambda)) = (2-\lambda)(4+\lambda^2-4\lambda-4)-2(4-2\lambda-4)+8-4(2-\lambda)=8+2\lambda^2 - 8\lambda-8-4\lambda-\lambda^3+4\lambda^2 + 4\lambda + 4\lambda + 8 - 8 + 4\lambda = - \lambda^3 + 6\lambda^2 = \lambda^2(6-\lambda)\) 
+\end{document}
