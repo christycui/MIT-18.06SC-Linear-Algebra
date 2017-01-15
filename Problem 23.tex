@@ -1,0 +1,68 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{23}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on differential equations and \(e^{At}\)}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{23.1}{}
+\(\frac{d||u(t)||^2}{dt} = \frac{d(u_1^2 + u_2^2 + u_3^2)}{dt} = 2u_1u_1' + 2u_2u_2' + 2u_3u_3' = 2u_1(cu_2-bu_3) + 2u_2(au_3 - cu_1) + 2u_3(bu_1-au_2) = 0\)
+
+This means that the length of \(u(t)\) does not change. 
+
+\question{23.2}{}
+Diagonalize \(A\):
+$$det (A-\lambda I) = det \begin{bmatrix} 1-\lambda 1 \\ 0 \ 3-\lambda \end{bmatrix} = (1-\lambda)(3-\lambda) = 0$$
+$$\lambda = 1, 3$$
+When \(\lambda = 1\), \((A-\lambda I)x = \begin{bmatrix} 0 \ 1 \\ 0 \ 2 \end{bmatrix} x = 0 \,\to\, x = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\).
+
+When \(\lambda = 3\), \((A-\lambda I)x = \begin{bmatrix} -2 \ 1 \\ 0 \ 0 \end{bmatrix} x = 0 \,\to\, x = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\).
+
+Therefore, \(A = \begin{bmatrix} 1 \ 1 \\ 0 \ 3 \end{bmatrix} = S\Lambda S^{-1}\) where \(S = \begin{bmatrix} 1 \ 1 \\ 0 \ 2 \end{bmatrix}\) and \(\Lambda = \begin{bmatrix} 1 \ 0 \\ 0 \ 3 \end{bmatrix}\).
+
+$$e^{At} = Se^{\Lambda t}S^{-1} = \begin{bmatrix} 1 \ 1 \\ 0 \ 2 \end{bmatrix}\begin{bmatrix} e^t \ 0 \\ 0 \ e^{3t} \end{bmatrix}\cdot \frac{1}{2} \cdot \begin{bmatrix} 2 \ -1 \\ 0 \ 1 \end{bmatrix} = \begin{bmatrix} e^t \ e^{3t} \\ 0 \ 2e^{3t} \end{bmatrix} \cdot \frac{1}{2} \cdot \begin{bmatrix} 2 \ -1 \\ 0 \ 1 \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 2e^t \ -e^t+e^{3t} \\ 0 \ 2e^{3t} \end{bmatrix}$$
+$$e^{At}|_{t=0} = \frac{1}{2} \begin{bmatrix} 2 \ 0 \\ 0 \ 2 \end{bmatrix} = \begin{bmatrix} 1 \ 0 \\ 0 \ 1 \end{bmatrix} = I $$
+$$\frac{d(d^{At})}{dt} = \frac{1}{2} \begin{bmatrix} 2e^t \ -e^t+3e^{3t} \\ 0 \ 6e^{3t} \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 2 \ 2 \\ 0 \ 6 \end{bmatrix} = \begin{bmatrix} 1 \ 1 \\ 0 \ 3 \end{bmatrix} = A $$
+$$\frac{ud}{dt} = Au \checkmark $$
+\end{document}
