@@ -1,0 +1,73 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{24}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on Markov matrices; Fourier series}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{24.1}{}
+\part{a} $$\begin{bmatrix} 1 \ b \\ b \ 1 \end{bmatrix}\ \,\to\, \begin{bmatrix} 1 \ b \\ 0 \ 1-b^2\end{bmatrix}$$
+
+\((1+b)(1-b) < 0 \,\to\, b < -1\) or \(b > 1\). 
+
+One symmetric matrix that has a negative eiganvalue is \(\begin{bmatrix} 1 \ -2 \\ 0 \ -3 \end{bmatrix}\).
+
+\part{b} Since one of the pivots is 1 after elimination, the other pivot (eiganvalue) must be negative.
+
+\part{c} It can't have two negative eigan values because there are only two cases, \(b < -1\) or \(b > 1\). No matter which case is \(b\) in, one of the terms in \((1+b)(1-b)\) is negative and one is positive.
+
+\question{24.2}{}
+\(A\) belongs to the following classes invertible, orthogonal, permutation, diagonalizable and Markov. \(A\) is not a projection because \(A\) times itself does not result \(A\). 
+
+\(B\) belongs to diagonalizable and Markov. \(B\) is not invertible because there are dependent columns. \(B\) is not orthogonal and is not a permutation matrix. \(B\) is a projection because \(B^2 = B\).
+
+\(QR,S\Lambda S^{-1}, Q\Lambda Q^T\) is possible for \(A\); and \(LU, S\Lambda S^{-1}, Q\Lambda Q^T\) is possible for \(B\).
+
+\question{24.3}{}
+Since \(A\) is a Markov matrix, every column of \(A\) sums up to 1.
+$$A = \begin{bmatrix} .7 \ .1 \ .2 \\ .1 \ .6 \ .3 \\ .2 \ .3 \ .5 \end{bmatrix}$$
+We know that one of \(A\)'s \(\lambda\) is 1. And the eiganvector when \(\lambda\) is one is the steady state. \((A-\lambda I)x = \begin{bmatrix} -.3 \ .1 \ .2 \\ .1 \ -.4 \ .3 \\ .2 \ .3 \ -.5 \end{bmatrix}x = 0 \,\to\, x = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}\)
+
+When \(A\) is a symmetric Markov matrix, not only every column sums up to one, every row also sums up to one. So when computing the eiganvector from \((A-\lambda I)\), each row of that matrix sums up to zero. Therefore \(x_1 = (1, ... , 1)\).
+\end{document}
