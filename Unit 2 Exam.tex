@@ -1,0 +1,88 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{ \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Unit 2 Exam}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{1}{}
+\part{a} \(\pm1\)
+
+Orthogonal matrix has determinant of \(\pm1\).
+
+\part{b} The determinant is a linear function of each row; therefore,
+$$det \begin{bmatrix} q_1+q_2 \ q_2+q_3 \ a_3+q_1 \end{bmatrix} = \begin{bmatrix} q_1 \ q_2 \ q_3 \end{bmatrix} + \begin{bmatrix} q_2 \ q_3 \ q_1 \end{bmatrix} = \pm2$$
+
+\part{c} The second term is the same as the first term because it requires two row exchanges (changes sign twice), so the product is always 1.
+
+\question{2}{}
+\part{a} We can rewrite the problem as
+$$\begin{bmatrix} 1 \ -10 \\ 1 \ -9 \\ \vdots \\ 1 \ 0 \\ \vdots \\ 1 \ 10 \end{bmatrix}\begin{bmatrix} C \\ D \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{bmatrix}$$
+Multiply both sides by \(A^T\)
+$$\begin{bmatrix} 21 \ 0 \\ 0 \ 770 \end{bmatrix}\begin{bmatrix} C \\ D \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$$
+$$\begin{bmatrix} C \\ D \end{bmatrix} = \begin{bmatrix} \frac{1}{21} \\ 0 \end{bmatrix}$$
+
+\part{b} I am projecting the matrix onto the column space of above. 
+
+The two bases are:
+\(\begin{bmatrix} 1 \\ \vdots \\  \\ 1 \end{bmatrix}\) and \(\begin{bmatrix} -10 \\ -9 \\ \vdots \\ 0 \\ \vdots \\ 10 \end{bmatrix}\)
+
+The error vector is perpendicular to the subspace. 
+$$e = b - Pb = \begin{bmatrix} 0 \\ \vdots \\ 1 \\ \vdots \\ 0 \end{bmatrix} - \begin{bmatrix} \frac{1}{21} \\ \vdots \\ \frac{1}{21} \end{bmatrix} = \begin{bmatrix} - \frac{1}{21} \\ \vdots \\ \frac{20}{21} \\ \vdots \\ -\frac{1}{21} \end{bmatrix}$$
+\question{3}{}
+\part{a} 
+$$P_A = A(A^TA)^{-1}A^T$$
+$$P_Q = Q(Q^TQ)^{-1}Q^T$$
+
+\part{b} Because both projection matrices project onto the same subspace. \(P_QQ\) is the projection of \(Q\) on to the column space of \(Q\). Determinant of \(P_Q\) is zero because there are only 3 independent vectors in \(R^5\) aka \(P_Q\) is singular. 
+
+\part{c} Choice 3
+
+\question{4}{}
+\part{a} Since the determinant can only come from one entry per column per row, the largest possible degree of polynomial is two.
+
+\part{b} det \(A = x(1) -x(x) + x(-x) - x (-1) (-x) = x - 3x^2\) 
+
+When x = 3 or x = \(\frac{1}{3}\), det \(A\) = 0.
+\end{document}
