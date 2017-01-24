@@ -1,0 +1,72 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{28}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on similar matrices and Jordan form}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{28.1}{}
+Suppose \(M = \begin{bmatrix} m_{11} \ m_{12} \ m_{13} \ m_{14} \\ ... \end{bmatrix}\):
+$$JM = MK = \begin{bmatrix} 0 \ m_{21} \ m_{22} \ 0 \\ 0 \ 0 \ 0 \ 0 \\ 0 \ m_{41} \ m_{42} \ 0 \\ 0 \ 0 \ 0 \ 0 \end{bmatrix}$$
+From the form of the product we can tell that \(M\) is not invertible, so \(M^{-1}\) does not exist. Therefore, \(J = M^{-1}KM\) does not stand and \(J\) is not similar to \(K\).
+
+\question{28.2}{}
+\part{a} Given \(M^{-1}AM = B\), it leads to:
+$$M^{-1}(A^2)M = M^{-1}AMM^{-1}AM = B^2$$ 
+
+\part{b} If \(A^2\) and \(B^2\) are similar and have \(\lambda = 0, 0\), it leads to \(S^{-1}A^2S = \begin{bmatrix} 0 \ 0 \\ 0 \ 0 \end{bmatrix} = S^{-1}B^2S\). However, this does not guarantee that \(S^{-1}AS = S^{-1}BS\). An example is \(A = \begin{bmatrix} 0 \ 0 \\ 0 \ 0 \end{bmatrix}\) and \(B = \begin{bmatrix} 0 \ 0 \\ 0 \ 1 \end{bmatrix}\).
+
+\part{c} 
+$$M^{-1}AM = \begin{bmatrix} 3 \ 1 \\ 0 \ 4 \end{bmatrix}$$
+$$\begin{bmatrix} 3 \ 0 \\ 0 \ 4 \end{bmatrix}\begin{bmatrix} m_{11} \ m_{12} \\ m_{21} \ m_{22} \end{bmatrix} = \begin{bmatrix} m_{11} \ m_{12} \\ m_{21} \ m_{22} \end{bmatrix}\begin{bmatrix} 3 \ 1 \\ 0 \ 4 \end{bmatrix}$$
+$$\begin{bmatrix} 3m_{11} \ 3m_{12} \\ 4m_{21} \ 4m_{22} \end{bmatrix} = \begin{bmatrix} 3m_{11} \ m_{11} + 4m_{12} \\ 3m_{21} \ m_{21} + 4m_{22} \end{bmatrix}$$
+One of the solutions is \(M = \begin{bmatrix} 1 \ -1 \\ 0 \ 1 \end{bmatrix}\). Therefore, those two matrices are similar.
+
+\part{d} The eiganvalues of \(\begin{bmatrix} 3 \ 0 \\ 0 \ 3 \end{bmatrix}\) are 3, 3. The eiganvalues of \(\begin{bmatrix} 3 \ 1 \\ 0 \ 3 \end{bmatrix}\) are 4, 2. 
+$$det \begin{bmatrix} 3-\lambda \ 1 \\ 0 \ 3-\lambda \end{bmatrix} = (3-\lambda)^2 - 1 = 0$$
+Those two matrices are similar because they have different eiganvalues.
+
+\part{e} Given the conditions, it leads to \(B = \begin{bmatrix} 0 \ 1 \\ 1 \ 0 \end{bmatrix}A\begin{bmatrix} 0 \ 1 \\ 1 \ 0 \end{bmatrix} = M^{-1}AM\). Therefore, \(A\) and \(B\) are similar.
+
+\end{document}
