@@ -1,0 +1,58 @@
+%=======================02-713 LaTeX template, following the 15-210 template==================
+%
+% You don't need to use LaTeX or this template, but you must turn your homework in as
+% a typeset PDF somehow.
+%
+% How to use:
+%    1. Update your information in section "A" below
+%    2. Write your answers in section "B" below. Precede answers for all 
+%       parts of a question with the command "\question{n}{desc}" where n is
+%       the question number and "desc" is a short, one-line description of 
+%       the problem. There is no need to restate the problem.
+%    3. If a question has multiple parts, precede the answer to part x with the
+%       command "\part{x}".
+%    4. If a problem asks you to design an algorithm, use the commands
+%       \algorithm, \correctness, \runtime to precede your discussion of the 
+%       description of the algorithm, its correctness, and its running time, respectively.
+%    5. You can include graphics by using the command \includegraphics{FILENAME}
+%
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1 #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\correctness{\vspace{.10in}\textbf{Correctness: }}
+\newcommand\runtime{\vspace{.10in}\textbf{Running time: }}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ (\ANDREWID)}}
+\chead{\textbf{Problem \HWNUM}}
+\rhead{Strang., 18.06SC}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Haiying Cui}  % your name
+\newcommand\ANDREWID{Christy}     % your andrew id
+\newcommand\HWNUM{29}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+\title{Exercises on singular value decomposition}
+\maketitle
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{29.1}{}
+$$A^TA = \begin{bmatrix} 2 \ 1 \\ 1 \ 1 \end{bmatrix}$$
+$$det(A^TA )= \begin{bmatrix} 2-\lambda \ 1 \\ 1 \ 1-\lambda \end{bmatrix} = (2-\lambda)(1-\lambda)-1 = \lambda^2 -3\lambda +1 = 0$$
+$$\lambda = \frac{3\pm \sqrt{5}}{2}$$
+We know that \(\Sigma = \begin{bmatrix} \sqrt{\lambda_1} \ 0 \\ 0 \ \sqrt{\lambda_2} \end{bmatrix}\), so we only need to verify that the two entries in the given \(\Sigma\) square up to \(\lambda\). And indeed, \((\frac{1+\sqrt{5}}{2})^2 = \frac{3+\sqrt{5}}{2}\) and \((\frac{\sqrt{5}-1}{2})^2 = \frac{3-\sqrt{5}}{2}\).
+
+\question{29.2}{}
+If \(A\) has orthogonal columns, then \(A^TA = \begin{bmatrix} w_1 \\ w_2 \\ ... \\ w_n \end{bmatrix}\begin{bmatrix} w_1 \ w_2 \ ... \ w_n \end{bmatrix}\) is a diagonal matrix with \(\sigma^2\) on the diagonal. Since we also know that \(A^TA = V\Sigma^2V^T\), it leads to \(V = I\). Lastly, since \(A = U\Sigma V = U\Sigma\), we have:
+$$U = A\Sigma^{-1} = \begin{bmatrix} \frac{w_1}{\sigma_1} \ \frac{w_2}{\sigma_2} \ ... \ \frac{w_n}{\sigma_n} \end{bmatrix}$$
+\end{document}
